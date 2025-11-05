@@ -117,13 +117,12 @@ from torchvision.datasets import CIFAR10
 dataset = CIFAR10(root='./CIFARdata', download=True, transform=transforms.ToTensor())
 ```
 
-## 报告格式
-作业报告格式包含：  
+## 报告提交
+实验报告以**学号+名字**命名，提交**pdf文件**到网盘对应文件夹下，实验报告需要包含：  
 1、问题描述  
 2、实验模型原理和概述  
 3、实验模型结构和参数  
 4、实验结果分析（包含训练集和测试集里的测试结果）,要求列举出一些**失败案例**并分析，分析指标提供越多，图表分析越详尽得分会越高。  
 5、总结  
-
 
 
