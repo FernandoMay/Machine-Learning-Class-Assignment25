@@ -109,6 +109,7 @@ DropBox下载：https://www.dropbox.com/sh/i79cbllw6763zxg/AAA3-jPaRlYHMvsMyRbtR
 
 两种途径下载后文件相同，任选其一即可。
 
+**鉴于上述下载方式下载不方便，以下提供北航网盘下载方式，网盘地址为：**[https://bhpan.buaa.edu.cn/link/AA84F755C78F1F4062BB81EBD5B41D5F7A](https://bhpan.buaa.edu.cn/link/AA84F755C78F1F4062BB81EBD5B41D5F7A)
 
 第四个题目的数据集可以通过以下代码获取：
 
