@@ -1,89 +1,87 @@
-# ML-Class-Assignment25
-2025机器学习基础课程大作业
+# Tarea-ML-Clase-25
+Tarea final del curso de Fundamentos de Aprendizaje Automático 2025
 
-## 任务描述
-本学期的机器学习大作业包括四个题目：手写数字识别、医学图像检测、图像显著性检测以及彩色图像生成。每节实验课完成其中一个，课后一周内提交报告。以下是题目具体描述：
+## Descripción de la tarea
+La tarea final de aprendizaje automático de este semestre incluye cuatro temas: reconocimiento de dígitos escritos a mano, detección de imágenes médicas, detección de saliencia de imágenes y generación de imágenes en color. Cada tema se completará en una clase de laboratorio y el informe se presentará dentro de una semana después de la clase. A continuación se detallan las descripciones específicas de cada tema:
 
-1、手写数字识别：机器学习经典问题，在灰度图像中识别10类手写数字，属于分类问题。
+1. Reconocimiento de dígitos escritos a mano: problema clásico de aprendizaje automático, consiste en reconocer 10 clases de dígitos escritos a mano en imágenes en escala de grises, es un problema de clasificación.
 
-2、医学图像检测：利用彩色眼底图像判断是否患病，属于分类问题。
+2. Detección de imágenes médicas: utilizar imágenes de fondo de ojo en color para determinar si hay enfermedad, es un problema de clasificación.
 
-3、图像显著性预测：在彩色图像中，预测人眼容易关注的区域（输出显著性图），属于回归问题。
+3. Predicción de saliencia de imágenes: en imágenes en color, predecir las áreas que captan fácilmente la atención del ojo humano (generar mapa de saliencia), es un problema de regresión.
 
-4、彩色图像生成：设计并训练一个生成网络，生成彩色图像。可以选择使用GAN、VAE或其他生成模型，目标是从随机噪声生成与训练数据分布相似的彩色图像。
+4. Generación de imágenes en color: diseñar y entrenar una red generativa para producir imágenes en color. Se puede optar por usar GAN, VAE u otros modelos generativos, con el objetivo de generar imágenes en color similares a la distribución de datos de entrenamiento a partir de ruido aleatorio.
 
-## 作业内容
+## Contenido de la tarea
 
-1、在训练集上训练机器学习模型。
+1. Entrenar modelos de aprendizaje automático en el conjunto de entrenamiento.
+2. Probar el rendimiento del modelo en el conjunto de prueba.
+3. Presentar informe experimental y código del modelo.
 
-2、在测试集上测试模型的性能。
+## Tema 1: Reconocimiento de dígitos escritos a mano
 
-3、提交实验报告与模型代码。
+### Archivos de datos
+* Conjunto de datos de entrenamiento (10 clases, 60.000 dígitos en total): almacenados en formato bmp en **1-Digit-TrainSet.zip**.
+* Conjunto de datos de prueba (10 clases, 10.000 dígitos en total): almacenados en formato bmp en **1-Digit-TestSet.zip**.
 
-## 题目一：手写数字识别
-
-### 数据文件
-* 训练数据集（10类，共6万个数字）：以bmp格式存储在**1-Digit-TrainSet.zip**。
-* 测试数据集（10类，共1万个数字）：以bmp格式存储在**1-Digit-TestSet.zip**。
-
-每个数据集中，每个文件名的第一个数字代表它的真实分类（label），即ground truth。
+En cada conjunto de datos, el primer dígito del nombre de archivo representa su clasificación real (etiqueta), es decir, ground truth.
 
 ![](/1-Digit-Example.png)
 
-### 性能指标
-测试集上的分类准确度。
+### Métricas de rendimiento
+Precisión de clasificación en el conjunto de prueba.
 
-## 题目二：医学图像检测
+## Tema 2: Detección de imágenes médicas
 
-### 数据文件
-* 训练数据集（2类，共1639幅图像）：以jpg格式存储在**2-MedImage-TrainSet.zip**。
-* 测试数据集（2类，共250幅图像）：以jpg格式存储在**2-MedImage-TestSet.zip**。
+### Archivos de datos
+* Conjunto de datos de entrenamiento (2 clases, 1639 imágenes en total): almacenadas en formato jpg en **2-MedImage-TrainSet.zip**.
+* Conjunto de datos de prueba (2 clases, 250 imágenes en total): almacenadas en formato jpg en **2-MedImage-TestSet.zip**.
 
 ![](/2-MedImage-Example.png)
 
-每个数据集中，以disease开头的文件为患病图像，以normal开头的文件为无病图像。
+En cada conjunto de datos, los archivos que comienzan con "disease" son imágenes con enfermedad, y los que comienzan con "normal" son imágenes sin enfermedad.
 
-### 性能指标
-最基本的指标是测试集上的分类准确度。考虑到患病与无病样本数量不均等，且两种误判（无病判断成患病、患病判断成无病）带来的风险不同，因此为了全面反映分类器性能，还可以给出精确率、AUC、ROC曲线（指标函数已给，在ROC文件夹中，代码使用详细见instruction.txt）或其他指标。
+### Métricas de rendimiento
+La métrica básica es la precisión de clasificación en el conjunto de prueba. Considerando que el número de muestras con y sin enfermedad no es equilibrado, y que los dos tipos de errores (clasificar sin enfermedad como enfermedad, y clasificar enfermedad como sin enfermedad) conllevan diferentes riesgos, para reflejar completamente el rendimiento del clasificador, también se pueden proporcionar precisión, AUC, curva ROC (las funciones de métricas están proporcionadas en la carpeta ROC, consulte instruction.txt para el uso detallado del código) u otras métricas.
 
-## 题目三：图像显著性预测
+## Tema 3: Predicción de saliencia de imágenes
 
-### 数据文件
-* 训练数据集（共1600幅待检测图像及1600幅对应的显著图）：以jpg格式存储在**3-Saliency-TrainSet.zip**中。
-* 测试数据集（共400幅待检测图像及400幅对应的显著图）：以jpg格式存储在**3-Saliency-TestSet.zip**中。
+### Archivos de datos
+* Conjunto de datos de entrenamiento (1600 imágenes para detectar y 1600 mapas de saliencia correspondientes): almacenados en formato jpg en **3-Saliency-TrainSet.zip**.
+* Conjunto de datos de prueba (400 imágenes para detectar y 400 mapas de saliencia correspondientes): almacenados en formato jpg en **3-Saliency-TestSet.zip**.
 
-每个数据集中，待检测图像为人眼直接观察的彩色图像，保存在**Stimuli**文件夹；对应的显著图(即ground truth)为相同尺寸的灰度图像，颜色越亮的区域代表显著性越强，保存在**FIXATIONMAPS**文件夹。考虑到图像内容可能对结果产生影响，每个数据集都包括20种不同类型的图像，存放在20个文件夹中（如**Action**，**Affective**，**Art**……），因此分析结果时，既可以给出总体性能，又可以按类型进行分析。
+En cada conjunto de datos, las imágenes para detectar son imágenes en color observadas directamente por el ojo humano, guardadas en la carpeta **Stimuli**; los mapas de saliencia correspondientes (es decir, ground truth) son imágenes en escala de grises del mismo tamaño, donde las áreas más brillantes representan mayor saliencia, guardadas en la carpeta **FIXATIONMAPS**. Considerando que el contenido de las imágenes puede afectar los resultados, cada conjunto de datos incluye 20 tipos diferentes de imágenes, almacenadas en 20 carpetas (como **Action**, **Affective**, **Art**...), por lo tanto, al analizar los resultados, se puede proporcionar tanto el rendimiento general como el análisis por tipo.
 
 ![](/3-Saliency-Example.png)
 
-### 性能指标
+### Métricas de rendimiento
 
-主观指标：预测显著图与ground truth显著图主观上对比。
+Métricas subjetivas: comparación subjetiva entre el mapa de saliencia predicho y el mapa de saliencia ground truth.
 
-客观指标：相关系数（CC）、KL散度（指标函数在metric.py文件中，可直接调用，内有使用说明），或其他衡量显著性图像相似程度的指标等。
+Métricas objetivas: coeficiente de correlación (CC), divergencia KL (las funciones de métricas están en el archivo metric.py, se pueden llamar directamente, con instrucciones de uso incluidas), u otras métricas que midan la similitud de imágenes de saliencia.
 
-## 题目四：彩色图像生成
+## Tema 4: Generación de imágenes en color
 
-### 数据文件
-CIFAR-10 是一个用于图像分类任务的广泛使用的数据集，包含 10 个不同类别的彩色图片。每个类别包含 6000 张图片，总共 60000 张图片，大小为 32x32 像素，分为 50000 张训练图片和 10000 张测试图片。这个数据集在机器学习和计算机视觉任务中非常常见。
+### Archivos de datos
+CIFAR-10 es un conjunto de datos ampliamente utilizado para tareas de clasificación de imágenes, que contiene 10 categorías diferentes de imágenes en color. Cada categoría contiene 6000 imágenes, para un total de 60,000 imágenes de 32x32 píxeles, divididas en 50,000 imágenes de entrenamiento y 10,000 imágenes de prueba. Este conjunto de datos es muy común en tareas de aprendizaje automático y visión por computadora.
 
-CIFAR-10 的类别包括：飞机（airplane）、汽车（automobile）、鸟类（bird）、猫（cat）、鹿（deer）、狗（dog）、青蛙（frog）、马（horse）、船（ship）、卡车（truck）。分析结果时，既可以给出总体性能，又可以按类型进行分析。
+Las categorías de CIFAR-10 incluyen: avión (airplane), automóvil (automobile), pájaro (bird), gato (cat), ciervo (deer), perro (dog), rana (frog), caballo (horse), barco (ship), camión (truck). Al analizar los resultados, se puede proporcionar tanto el rendimiento general como el análisis por tipo.
 
 ![](/4-CIFAR10-Example.png)
 
-### 性能指标
-主观指标：生成图像质量主观评价，对比数据集中的真实图像。报告中可以给出随着训练迭代轮数增加，生成图像结果的变化情况。
+### Métricas de rendimiento
+Métricas subjetivas: evaluación subjetiva de la calidad de las imágenes generadas, comparando con las imágenes reales del conjunto de datos. En el informe se puede mostrar la evolución de los resultados de las imágenes generadas a medida que aumentan las iteraciones de entrenamiento.
 
-客观指标：使用Inception Score（IS）和Frechet Inception Distance（FID）等评价指标，分析生成图像的质量。
+Métricas objetivas: usar métricas de evaluación como Inception Score (IS) y Frechet Inception Distance (FID) para analizar la calidad de las imágenes generadas.
 
 ```python
-# 首先安装torch-fidelity库
+# Primero instalar la biblioteca torch-fidelity
 pip install torch-fidelity
 
 import torch_fidelity
 def fidelity_metric(genereated_images_path, real_images_path):
 """
-使用fidelity package计算所有的生成相关的指标，输入生成图像路径和真实图像路径
+Usar el paquete fidelity para calcular todas las métricas relacionadas con la generación, introduciendo las rutas de las imágenes generadas y las imágenes reales
 isc: inception score
 kid: kernel inception distance
 fid: frechet inception distance
@@ -100,30 +98,28 @@ fid: frechet inception distance
   return metrics_dict
 ```
 
-## 数据获取
-前三个题目的数据集可以通过以下链接获取：
+## Obtención de datos
+Los conjuntos de datos de los primeros tres temas se pueden obtener a través de los siguientes enlaces:
 
-百度云盘下载：https://pan.baidu.com/s/1mOCFxATcCkHGbK8Vdtv5yQ
+Descarga de Baidu Cloud: https://pan.baidu.com/s/1mOCFxATcCkHGbK8Vdtv5yQ
 
-DropBox下载：https://www.dropbox.com/sh/i79cbllw6763zxg/AAA3-jPaRlYHMvsMyRbtRRmaa?dl=0
+Descarga de DropBox: https://www.dropbox.com/sh/i79cbllw6763zxg/AAA3-jPaRlYHMvsMyRbtRRmaa?dl=0
 
-两种途径下载后文件相同，任选其一即可。
+Los archivos son iguales después de descargar por cualquiera de los dos métodos, puede elegir cualquiera de ellos.
 
-**鉴于上述下载方式下载不方便，以下提供北航网盘下载方式，网盘地址为：**[https://bhpan.buaa.edu.cn/link/AA84F755C78F1F4062BB81EBD5B41D5F7A](https://bhpan.buaa.edu.cn/link/AA84F755C78F1F4062BB81EBD5B41D5F7A)
+**Dado que los métodos de descarga anteriores pueden ser inconvenientes, aquí se proporciona un método de descarga a través del disco en la nube de Beihang, la dirección es:**[https://bhpan.buaa.edu.cn/link/AA84F755C78F1F4062BB81EBD5B41D5F7A](https://bhpan.buaa.edu.cn/link/AA84F755C78F1F4062BB81EBD5B41D5F7A)
 
-第四个题目的数据集可以通过以下代码获取：
+El conjunto de datos del cuarto tema se puede obtener a través del siguiente código:
 
 ```python
 from torchvision.datasets import CIFAR10
 dataset = CIFAR10(root='./CIFARdata', download=True, transform=transforms.ToTensor())
 ```
 
-## 报告提交
-实验报告以**学号+名字**命名，提交**pdf文件**到网盘对应文件夹下，实验报告需要包含：  
-1、问题描述  
-2、实验模型原理和概述  
-3、实验模型结构和参数  
-4、实验结果分析（包含训练集和测试集里的测试结果）,要求列举出一些**失败案例**并分析，分析指标提供越多，图表分析越详尽得分会越高。  
-5、总结  
-
-
+## Presentación del informe
+El informe experimental debe nombrarse con **número de estudiante + nombre**, y se debe presentar un **archivo PDF** en la carpeta correspondiente del disco en la nube. El informe experimental debe incluir:
+1. Descripción del problema
+2. Principios y descripción general del modelo experimental
+3. Estructura y parámetros del modelo experimental
+4. Análisis de resultados experimentales (incluyendo resultados de pruebas en conjuntos de entrenamiento y prueba), se requiere enumerar algunos **casos fallidos** y analizarlos. Cuantas más métricas de análisis se proporcionen y más detallado sea el análisis con gráficos, mayor será la puntuación.
+5. Conclusión
